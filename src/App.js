@@ -5,6 +5,7 @@ import { Provider } from './Hooks/useCannon'
 
 import Box from './Components/Box';
 import Plane from './Components/Plane';
+import Sprite from './Components/Sprite';
 
 function App() {
   const [showPlane, set] = useState(true);
@@ -27,8 +28,8 @@ function App() {
         <spotLight intensity={0.3} position={[30, 30, 50]} angle={0.2} penumbra={1} castShadow />
         <Provider>
           <Plane position={[0, 0, -10]} />
-          {/* {showPlane && <Plane position={[0, 0, 0]} />} */}
-          <Box onClick={() => setShowSprite(true)} 
+          {showPlane && <Plane position={[0, 0, 0]} />}
+          <Box show={setShowSprite} 
           position={[1, 0, 1]} 
           color={'#BC6C75'}
           hoverColor={'#BD081C'}
@@ -38,9 +39,10 @@ function App() {
           <Box position={[-1, 1, 8]} />
           <Box position={[-2, 2, 13]} />
           <Box position={[2, -1, 13]} />
-          {/* {!showPlane && <Box position={[0.5, 1.0, 20]} />} */}
+          {!showPlane && <Box position={[0.5, 1.0, 20]} />}
         </Provider>
       </Canvas>
+      {showSprite && <Sprite show={setShowSprite} />}
     </div>
   )
 }
