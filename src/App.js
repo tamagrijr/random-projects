@@ -28,7 +28,11 @@ function App() {
         <Provider>
           <Plane position={[0, 0, -10]} />
           {/* {showPlane && <Plane position={[0, 0, 0]} />} */}
-          <Box className='sprite-sheet' onClick={() => setShowSprite(true)} position={[1, 0, 1]} />
+          <Box onClick={() => setShowSprite(true)} 
+          position={[1, 0, 1]} 
+          color={'#BC6C75'}
+          hoverColor={'#BD081C'}
+          />
           <Box position={[2, 1, 5]} />
           <Box position={[0, 0, 6]} />
           <Box position={[-1, 1, 8]} />

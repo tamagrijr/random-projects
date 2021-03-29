@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as CANNON from 'cannon'
 import { useCannon } from '../Hooks/useCannon'
 
-export default function Box({ position }) {
+export default function Box({ position, color, hoverColor }) {
   // Register box as a physics body with mass
   const ref = useCannon({ mass: 100000 }, body => {
     body.addShape(new CANNON.Box(new CANNON.Vec3(1, 1, 1)))
     body.position.set(...position)
-  })
+  });
+
+  const [boxColor, setBoxColor] = useState(color ? color : "#575757")
 
   return (
-    <mesh ref={ref} castShadow receiveShadow>
+    <mesh ref={ref} castShadow receiveShadow
+      onPointerOver={() => setBoxColor(hoverColor)}
+      onPointerOut={() => setBoxColor(color)}>
       <boxGeometry attach="geometry" args={[2, 2, 2]} />
-      <meshStandardMaterial attach="material" roughness={0.5} color="#575757" />
+      <meshStandardMaterial attach="material" roughness={0.5} color={boxColor} />
+
     </mesh>
   )
 }
