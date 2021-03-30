@@ -7,11 +7,10 @@ import Box from './Components/Box';
 import Plane from './Components/Plane';
 import Sprite from './Components/Sprite';
 import Preview from './Components/Preview';
-import useMousePosition from './Hooks/useMousePosition';
+import Instructions from './Components/Instructions';
 
 function App() {
   //useMousePosition Hook grabs the location of the cursor left by x top by y
-  const { x, y } = useMousePosition();
   const [showPlane, setShowPlane] = useState(true);
   // When React removes (unmounts) the upper plane after 5 sec, objects should drop ...
   // This may seem like magic, but as the plane unmounts it removes itself from cannon and that's that
@@ -23,8 +22,8 @@ function App() {
 
   return (
     <div className="main">
-      {showPreview && <Preview x={x} y={y} message={showPreview} />}
-      
+      <Preview message={showPreview} display={showPreview} />
+      {showPlane && <Instructions />}
       <Canvas
         shadowMap
         camera={{ position: [0, 0, 15] }}
@@ -62,7 +61,7 @@ function App() {
           {!showPlane && <Box position={[0.5, 1.0, 20]} />} */}
         </Provider>
       </Canvas>
-      
+
       {showSprite && <Sprite show={setShowSprite} />}  
     </div>
   )

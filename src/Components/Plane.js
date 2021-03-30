@@ -12,7 +12,7 @@ export default function Plane({ position }) {
   return (
     <mesh ref={ref} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshStandardMaterial attach="material" color="#171717" />
+      <meshStandardMaterial attach='material' color='wheat'/>
     </mesh>
   )
 }

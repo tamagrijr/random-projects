@@ -8,9 +8,9 @@ const useMousePosition = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("mousemove", updateMousePosition);
+    document.addEventListener("mousemove", updateMousePosition);
 
-    return () => window.removeEventListener("mousemove", updateMousePosition);
+    return () => document.removeEventListener("mousemove", updateMousePosition);
   }, []);
 
   return mousePosition;
