@@ -5,9 +5,10 @@ import { Provider } from './Hooks/useCannon'
 
 import Box from './Components/Box';
 import Plane from './Components/Plane';
-import Sprite from './Components/Sprite';
-import Preview from './Components/Preview';
 import Instructions from './Components/Instructions';
+import Preview from './Components/Preview';
+import Sprite from './Components/Sprite';
+import SmokeParticle from './Components/SmokeParticle';
 
 function App() {
   //useMousePosition Hook grabs the location of the cursor left by x top by y
@@ -18,7 +19,7 @@ function App() {
 
   const [showPreview, setShowPreview] = useState(false);
   const [showSprite, setShowSprite] = useState(false);
-  const [showParticleRain, setShowParticleRain] = useState(false);
+  const [showSmokeParticle, setShowSmokeParticle] = useState(false);
 
   return (
     <div className="main">
@@ -47,7 +48,7 @@ function App() {
           />
           <Box 
           position={[2, 1, 5]}
-          show={setShowParticleRain} 
+          show={setShowSmokeParticle} 
           color={'#A8C2FB'}
           hoverColor={'#6893EE'}
           preview={setShowPreview}
@@ -62,7 +63,8 @@ function App() {
         </Provider>
       </Canvas>
 
-      {showSprite && <Sprite show={setShowSprite} />}  
+      {showSprite && <Sprite show={setShowSprite} />} 
+      {showSmokeParticle && <SmokeParticle show={setShowSmokeParticle} />}
     </div>
   )
 }

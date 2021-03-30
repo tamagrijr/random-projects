@@ -25,7 +25,7 @@ export default function Sprite({ show }) {
   useKeyup('d', () => setSheet(idle));
 
   return (
-    <SpriteModal onClick={() => show(false)} >
+    <Modal onClick={() => show(false)} >
       <Instructions>
         Click Anywhere to Exit <br/> <br/>
         W - Move Up <br/>
@@ -36,7 +36,7 @@ export default function Sprite({ show }) {
       <SpriteWrapper>
         <SpriteSheet src={ sheet } direction={direction} ></SpriteSheet>
       </SpriteWrapper>
-    </SpriteModal>
+    </Modal>
   )
 }
 
@@ -48,7 +48,7 @@ to{
   transform: translate3d(-100%,0,0)
 }
 `;
-const SpriteModal = styled.div`
+const Modal = styled.div`
 background-color: rgba(0,0,0,0.4);
 position: fixed;
 z-index: 1;
