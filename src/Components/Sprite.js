@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import pegasus from '../../images/pegasus.png'
+import pegasus from '../images/pegasus.png'
 
 export default function Sprite({ show }) {
   return (

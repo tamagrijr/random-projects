@@ -5,8 +5,8 @@ import { Provider } from './Hooks/useCannon'
 
 import Box from './Components/Box';
 import Plane from './Components/Plane';
-import Sprite from './Components/SpriteDemo/Sprite';
-import SpritePreview from './Components/SpriteDemo/SpritePreview';
+import Sprite from './Components/Sprite';
+import Preview from './Components/Preview';
 import useMousePosition from './Hooks/useMousePosition';
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
   // This may seem like magic, but as the plane unmounts it removes itself from cannon and that's that
   useEffect(() => void setTimeout(() => set(false), 5000), []);
 
+  const [showPreview, setShowPreview] = useState(false);
   const [showSprite, setShowSprite] = useState(false);
-  const [showSpritePreview, setShowSpritePreview] = useState(false);
 
   return (
     <div className="main">
@@ -33,12 +33,16 @@ function App() {
         <Provider>
           <Plane position={[0, 0, -10]} />
           {showPlane && <Plane position={[0, 0, 0]} />}
-          <Box show={setShowSprite} 
+
+          <Box 
+          show={setShowSprite} 
           position={[1, 0, 1]} 
           color={'#BC6C75'}
           hoverColor={'#BD081C'}
-          preview={setShowSpritePreview}
+          preview={setShowPreview}
+          message={'Click to check out a sprite animation!'}
           />
+
           {/* <Box position={[2, 1, 5]} />
           <Box position={[0, 0, 6]} />
           <Box position={[-1, 1, 8]} />
@@ -48,7 +52,7 @@ function App() {
         </Provider>
       </Canvas>
       {showSprite && <Sprite show={setShowSprite} />}
-      {showSpritePreview && <SpritePreview x={x} y={y} />}
+      {showPreview && <Preview x={x} y={y} message={showPreview} />}
     </div>
   )
 }
