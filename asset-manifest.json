@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/random-projects/static/css/main.1ff6c25f.chunk.css",
+    "main.js": "/random-projects/static/js/main.ebc3f647.chunk.js",
+    "main.js.map": "/random-projects/static/js/main.ebc3f647.chunk.js.map",
+    "runtime-main.js": "/random-projects/static/js/runtime-main.6d8640e5.js",
+    "runtime-main.js.map": "/random-projects/static/js/runtime-main.6d8640e5.js.map",
+    "static/js/2.c60c2928.chunk.js": "/random-projects/static/js/2.c60c2928.chunk.js",
+    "static/js/2.c60c2928.chunk.js.map": "/random-projects/static/js/2.c60c2928.chunk.js.map",
+    "index.html": "/random-projects/index.html",
+    "static/css/main.1ff6c25f.chunk.css.map": "/random-projects/static/css/main.1ff6c25f.chunk.css.map",
+    "static/js/2.c60c2928.chunk.js.LICENSE.txt": "/random-projects/static/js/2.c60c2928.chunk.js.LICENSE.txt",
+    "static/media/trump_idle.11be1a02.png": "/random-projects/static/media/trump_idle.11be1a02.png",
+    "static/media/trump_run.8a44074f.png": "/random-projects/static/media/trump_run.8a44074f.png",
+    "static/media/trump_walk.6f05176d.png": "/random-projects/static/media/trump_walk.6f05176d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6d8640e5.js",
+    "static/js/2.c60c2928.chunk.js",
+    "static/css/main.1ff6c25f.chunk.css",
+    "static/js/main.ebc3f647.chunk.js"
+  ]
+}
