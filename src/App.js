@@ -10,17 +10,21 @@ import Preview from './Components/Preview';
 import useMousePosition from './Hooks/useMousePosition';
 
 function App() {
+  //useMousePosition Hook grabs the location of the cursor left by x top by y
   const { x, y } = useMousePosition();
-  const [showPlane, set] = useState(true);
+  const [showPlane, setShowPlane] = useState(true);
   // When React removes (unmounts) the upper plane after 5 sec, objects should drop ...
   // This may seem like magic, but as the plane unmounts it removes itself from cannon and that's that
-  useEffect(() => void setTimeout(() => set(false), 5000), []);
+  useEffect(() => void setTimeout(() => setShowPlane(false), 5000), []);
 
   const [showPreview, setShowPreview] = useState(false);
   const [showSprite, setShowSprite] = useState(false);
+  const [showParticleRain, setShowParticleRain] = useState(false);
 
   return (
     <div className="main">
+      {showPreview && <Preview x={x} y={y} message={showPreview} />}
+      
       <Canvas
         shadowMap
         camera={{ position: [0, 0, 15] }}
@@ -35,24 +39,31 @@ function App() {
           {showPlane && <Plane position={[0, 0, 0]} />}
 
           <Box 
-          show={setShowSprite} 
           position={[1, 0, 1]} 
+          show={setShowSprite} 
           color={'#BC6C75'}
-          hoverColor={'#BD081C'}
+          hoverColor={'#FE664E'}
           preview={setShowPreview}
           message={'Click to check out a sprite animation!'}
           />
+          <Box 
+          position={[2, 1, 5]}
+          show={setShowParticleRain} 
+          color={'#A8C2FB'}
+          hoverColor={'#6893EE'}
+          preview={setShowPreview}
+          message={'Click to check out a particle effect!'}
+          />
 
-          {/* <Box position={[2, 1, 5]} />
-          <Box position={[0, 0, 6]} />
+          {/* <Box position={[0, 0, 6]} />
           <Box position={[-1, 1, 8]} />
           <Box position={[-2, 2, 13]} />
           <Box position={[2, -1, 13]} />
           {!showPlane && <Box position={[0.5, 1.0, 20]} />} */}
         </Provider>
       </Canvas>
-      {showSprite && <Sprite show={setShowSprite} />}
-      {showPreview && <Preview x={x} y={y} message={showPreview} />}
+      
+      {showSprite && <Sprite show={setShowSprite} />}  
     </div>
   )
 }
