@@ -5,7 +5,8 @@ import { Provider } from './Hooks/useCannon'
 
 import Box from './Components/Box';
 import Plane from './Components/Plane';
-import Sprite from './Components/Sprite';
+import Sprite from './Components/SpriteDemo/Sprite';
+import SpritePreview from './Components/SpriteDemo/SpritePreview';
 
 function App() {
   const [showPlane, set] = useState(true);
@@ -14,6 +15,7 @@ function App() {
   useEffect(() => void setTimeout(() => set(false), 5000), []);
 
   const [showSprite, setShowSprite] = useState(false);
+  const [showSpritePreview, setShowSpritePreview] = useState(false);
 
   return (
     <div className="main">
@@ -43,6 +45,7 @@ function App() {
         </Provider>
       </Canvas>
       {showSprite && <Sprite show={setShowSprite} />}
+      {showSpritePreview && <SpritePreview />}
     </div>
   )
 }
