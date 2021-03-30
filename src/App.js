@@ -52,7 +52,7 @@ function App() {
           color={'#A8C2FB'}
           hoverColor={'#6893EE'}
           preview={setShowPreview}
-          message={'Click to check out a particle effect!'}
+          message={'Click to check out a smoke particle effect!'}
           />
 
           {/* <Box position={[0, 0, 6]} />
