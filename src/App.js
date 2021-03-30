@@ -7,8 +7,10 @@ import Box from './Components/Box';
 import Plane from './Components/Plane';
 import Sprite from './Components/SpriteDemo/Sprite';
 import SpritePreview from './Components/SpriteDemo/SpritePreview';
+import useMousePosition from './Hooks/useMousePosition';
 
 function App() {
+  const { x, y } = useMousePosition();
   const [showPlane, set] = useState(true);
   // When React removes (unmounts) the upper plane after 5 sec, objects should drop ...
   // This may seem like magic, but as the plane unmounts it removes itself from cannon and that's that
@@ -35,17 +37,18 @@ function App() {
           position={[1, 0, 1]} 
           color={'#BC6C75'}
           hoverColor={'#BD081C'}
+          preview={setShowSpritePreview}
           />
-          <Box position={[2, 1, 5]} />
+          {/* <Box position={[2, 1, 5]} />
           <Box position={[0, 0, 6]} />
           <Box position={[-1, 1, 8]} />
           <Box position={[-2, 2, 13]} />
           <Box position={[2, -1, 13]} />
-          {!showPlane && <Box position={[0.5, 1.0, 20]} />}
+          {!showPlane && <Box position={[0.5, 1.0, 20]} />} */}
         </Provider>
       </Canvas>
       {showSprite && <Sprite show={setShowSprite} />}
-      {showSpritePreview && <SpritePreview />}
+      {showSpritePreview && <SpritePreview x={x} y={y} />}
     </div>
   )
 }
